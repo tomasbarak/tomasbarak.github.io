@@ -3,7 +3,7 @@
     height: 2px;
     background-color: #333;
     display: block;
-    margin: 8px auto;
+    margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -20,15 +20,73 @@
   }
   
   #hamburger-1.is-active .line:nth-child(1){
-    -webkit-transform: translateY(8px) rotate(45deg);
-    -ms-transform: translateY(13px) rotate(45deg);
-    -o-transform: translateY(13px) rotate(45deg);
-    transform: translateY(13px) rotate(45deg);
+    -webkit-transform: translateY(7px) rotate(45deg);
+    -ms-transform: translateY(7px) rotate(45deg);
+    -o-transform: translateY(7px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
   
   #hamburger-1.is-active .line:nth-child(3){
-    -webkit-transform: translateY(-13px) rotate(-45deg);
-    -ms-transform: translateY(-13px) rotate(-45deg);
-    -o-transform: translateY(-13px) rotate(-45deg);
-    transform: translateY(-13px) rotate(-45deg);
+    -webkit-transform: translateY(-7px) rotate(-45deg);
+    -ms-transform: translateY(-7px) rotate(-45deg);
+    -o-transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  #hamburger-menu{
+    display: flex;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    height: 100vh;
+    background-color: white;
+    border-bottom: 1px solid rgb(240, 240, 240);
+    border-left: 1px solid rgb(240, 240, 240);
+    z-index: 1000;
+    width: 0;
+    transition: width .5s ease-in-out;
+    overflow: hidden !important;
+  }
+
+  .hamb-active{
+    width: 25vw !important;
+    transition: width .5s ease-in-out !important;
+  }
+
+  .item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 15px;
+    margin-top: 0;
+    cursor: pointer;
+    height: 60px;
+    width: calc(25vw - 15px);
+    padding: 8px;
+    transition-duration: .5s;
+    box-sizing: border-box;
+  }
+
+  .item:hover{
+    background-color: rgb(240, 240, 240);
+    transition-duration: .5s;
+  }
+
+  .item > svg{
+    fill: #333;
+    margin-right: 15px;
+  }
+
+  .item-active{
+    color: rgb(0, 105,148);
+    background-color: rgb(240, 240, 240);
+  }
+
+  .item-active > svg{
+    fill: rgb(0, 105,148);
   }
