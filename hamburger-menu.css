@@ -90,3 +90,30 @@
   .item-active > svg{
     fill: rgb(0, 105,148);
   }
+
+  @media screen and (max-width: 605px) {
+    .hamb-active{
+      width: 250px !important;
+      transition: width .5s ease-in-out !important;
+    }
+  
+    .item{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 15px;
+      margin-top: 0;
+      cursor: pointer;
+      height: 60px;
+      width: calc(250px - 15px);
+      padding: 8px;
+      transition-duration: .5s;
+      box-sizing: border-box;
+    }
+  }

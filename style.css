@@ -59,12 +59,14 @@ body, html{
 }
 #content-page > h1{
     font-family: 'Roboto', sans-serif;
-    color: rgba(0, 0, 0, 0.5);
+    color: #23253F;
     font-weight: bolder;
+    width: fit-content;
     position: absolute;
     top: auto;
     bottom: auto;
     left: auto;
     right: auto;
     font-size: 50px;
+    text-align: center;
 }
