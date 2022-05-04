@@ -60,7 +60,7 @@
       border-bottom: 1px solid rgb(240, 240, 240);
       border-left: 1px solid rgb(240, 240, 240);
       z-index: 1000;
-      transition: height .5s ease-in-out;
+      transition: height .25s ease-in-out;
       overflow: hidden !important;
 
       right: 0;
@@ -83,7 +83,7 @@
       height: 100vh !important;
       width: 100vw;
       min-width: 100vw;
-      transition: height .5s ease-in-out !important;
+      transition: height .25s ease-in-out !important;
     }
 
     .item{
@@ -117,7 +117,7 @@
       border-left: 1px solid rgb(240, 240, 240);
       z-index: 1000;
       width: 0;
-      transition: width .5s ease-in-out;
+      transition: width .25s ease-in-out;
       overflow: hidden !important;
       height: 100vh !important;
     }
@@ -125,7 +125,7 @@
     .hamb-active{
       width: 25vw !important;
       height: 100vh !important;
-      transition: width .5s ease-in-out;
+      transition: width .25s ease-in-out;
     }
   
     .item{
