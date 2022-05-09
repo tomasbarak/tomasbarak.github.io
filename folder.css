@@ -18,3 +18,29 @@
     transition: background-color .25s ease-in-out;
     background-color: rgb(220, 220, 220);
 }
+#trabajos-folders {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+  }
+  
+  /* Screen larger than 600px? 2 column */
+  @media (min-width: 320px) {
+    #trabajos-folders { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  /* Screen larger than 900px? 3 columns */
+  @media (min-width: 600px) {
+    #trabajos-folders { grid-template-columns: repeat(3, 1fr); }
+  }  
+  
+  /* Screen larger than 900px? 3 columns */
+  @media (min-width: 800px) {
+    #trabajos-folders { grid-template-columns: repeat(5, 1fr); }
+  }  
+
+  /* Screen larger than 900px? 3 columns */
+  @media (min-width: 1024px) {
+    #trabajos-folders { grid-template-columns: repeat(6, 1fr); }
+  }
