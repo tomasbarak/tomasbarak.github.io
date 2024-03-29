@@ -4,99 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Tomás Barak</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="waves.css">
-    <link rel="stylesheet" href="hamburger-menu.css">
-    <link rel="stylesheet" href="folder.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/scripts/hamburger-items-handling.js"></script>
-    <script src="/scripts/github-api-handler.js"></script>
-    <script src="/scripts/jobs-handler.js"></script>
+    <link rel="stylesheet" href="carousel.css">
 </head>
 
 <body>
-    <div id="top-nav-bar">
-        <a id="my-name">3°CSTC</a>
-        <div id="hamb-btn-container">
-            <div class="hamburger" id="hamburger-1">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </div>
-
-            <div id="hamburger-menu">
-                <div id="hamburger-items">
-                    <a id="item-inicio" href="#inicio" class="item item-active">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24">
-                            <path fill-rule="evenodd"
-                                d="M8.156 1.835a.25.25 0 00-.312 0l-5.25 4.2a.25.25 0 00-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v5.25h2.75a.25.25 0 00.25-.25V6.23a.25.25 0 00-.094-.195l-5.25-4.2zM6.906.664a1.75 1.75 0 012.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0113.25 15h-3.5a.75.75 0 01-.75-.75V9H7v5.25a.75.75 0 01-.75.75h-3.5A1.75 1.75 0 011 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2h-.001z">
-                            </path>
-                        </svg>
-                        Inicio
-                    </a>
-                    <a id="item-trabajos" href="#trabajos" class="item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24">
-                            <path fill-rule="evenodd"
-                                d="M6.75 0A1.75 1.75 0 005 1.75V3H1.75A1.75 1.75 0 000 4.75v8.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0016 13.25v-8.5A1.75 1.75 0 0014.25 3H11V1.75A1.75 1.75 0 009.25 0h-2.5zM9.5 3V1.75a.25.25 0 00-.25-.25h-2.5a.25.25 0 00-.25.25V3h3zM5 4.5H1.75a.25.25 0 00-.25.25V6a2 2 0 002 2h9a2 2 0 002-2V4.75a.25.25 0 00-.25-.25H5zm-1.5 5a3.484 3.484 0 01-2-.627v4.377c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V8.873a3.484 3.484 0 01-2 .627h-9z">
-                            </path>
-                        </svg>
-                        Trabajos
-                    </a>
-                </div>
+    <nav id="top-navbar">
+        <a id="home-btn" href="#presentation-section">Home</a>
+        <a id="projects-btn" href="#projects-section">Projects</a>
+        <a id="contact-btn" href="#contact-section">Contact</a>
+    </nav>
+    <section id="presentation-section">
+        <div id="presentation-left-container">
+            <div id="presentation-left">
+                <h3>Hey,</h3>
+                <h1>I'm <font class="bold-font">Tomás Barak</font>
+                </h1>
+                <div id="presentation-h2">A <ol class="accent-font">
+                        <li><span>full-stack</span></li>
+                        <li><span>front-end</span></li>
+                        <li><span>back-end</span></li>
+                    </ol> developer based in Argentina</div>
             </div>
         </div>
-    </div>
 
-    <div id="inicio">
-        <div id="content-page">
-            <h1>TOMÁS BARAK</h1>
+        <div id="presentation-right">
+            <img src="images/programming.svg" alt="Programmer illustration">
         </div>
 
-        <div id="sea-container">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave"
-                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                </defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0, 105,148, 0.7" />
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0, 105,148, 0.5)" />
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0, 105,148, 0.3)" />
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#006994" />
-                </g>
-            </svg>
-        </div>
-    </div>
+        <!-- <img src="images/wave-accent.svg" id="presentation-wave" alt="WAVE SVG"> -->
+    </section>
+    <section id="projects-section">
 
-    <div id="trabajos">
-        <a class="title"> Trabajos</a>
-        <div id="trabajos-folders">
-
+        <div class="projects-left">
+            
         </div>
-    </div>
+        <div class="projects-right">
+            <div class="project-info-container">
+                <img class="project-image" src="images/mitender-banner.png" alt="">
+                <h1 class="project-title">Mi Tender</h1>
+                <p class="project-description">Mi Tender is an Android application that notifies the user when it is going to rain near his house.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section">
+
+    </section>
 
     <script>
-        addClickListeners();
-        let href = window.location.href.slice(window.location.href.lastIndexOf('#'), window.location.href.length);
-        console.log(href);
-        setItemActiveByHref(href);
-        let folders_init;
-        getGithubFolders().then(folders => {
-            console.log(folders);
-            folders_init = folders.filter(item => item.path.indexOf('/') === -1);;
-            folders_init.forEach(folder => {
-                let folderName = String(folder.path);
-                folderName = folderName.charAt(0).toUpperCase() + folderName.slice(1);
-                addFolder(folderName, {
-                    url: folder.url,
-                    sha: folder.sha,
-                    path: folder.path
-                })
-            })
-        })
+        const home_btn = document.querySelector("#home-btn");
+        const projects_btn = document.querySelector("#projects-btn");
+        const contact_btn = document.querySelector("#contact-btn");
+
+        function selected_section() {
+            const url_hash = window.location.hash;
+
+            console.log(url_hash);
+
+            if (url_hash == "#presentation-section") {
+                return "home";
+            } else if (url_hash === "#projects-section") {
+                return "projects";
+            } else if (url_hash === "#contact-section") {
+                return "contact";
+            } else {
+                return "home";
+            }
+        }
+
+        function select_section_btn(selected_section) {
+            if (selected_section === "home") {
+                home_btn.classList.add("selected");
+                projects_btn.classList.remove("selected");
+                contact_btn.classList.remove("selected");
+            } else if (selected_section === "projects") {
+                home_btn.classList.remove("selected");
+                projects_btn.classList.add("selected");
+                contact_btn.classList.remove("selected");
+            } else if (selected_section === "contact") {
+                home_btn.classList.remove("selected");
+                projects_btn.classList.remove("selected");
+                contact_btn.classList.add("selected");
+            }
+        }
+
+        const current_section = selected_section();
+        select_section_btn(current_section);
+
+        home_btn.addEventListener("click", () => {
+            select_section_btn("home");
+        });
+
+        projects_btn.addEventListener("click", () => {
+            select_section_btn("projects");
+        });
+
+        contact_btn.addEventListener("click", () => {
+            select_section_btn("contact");
+        });
+
+    </script>
+
+    <script>
 
     </script>
 </body>
