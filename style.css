@@ -134,12 +134,11 @@ html, body {
 .projects-left {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 50%;
-    height: 100%;
+    height: calc(100vh - 60px);
     box-sizing: border-box;
-    padding: 50px;
 }
 
 .projects-right {
@@ -148,9 +147,8 @@ html, body {
     align-items: center;
     justify-content: flex-start;
     width: 50%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     box-sizing: border-box;
-    padding: 50px;
     animation: carousel 20s infinite ease-in-out;
 }
 
@@ -159,7 +157,7 @@ html, body {
     display: flex;
     width: 100%;
     height: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 60px);
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -308,6 +306,82 @@ html, body {
     text-align: center;
     animation: slide-up 6s infinite;
 }
+
+#tech-title {
+    color: var(--text-color);
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+#tech-slide-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: calc(100vh - 60px);
+    animation: carousel 20s infinite ease-in-out;
+}
+
+.project-tech-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+.project-tech-container > ol {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* INSET SHADOW SAME COLOR AS BACKGROUND */
+    box-shadow: inset 0px 0px 50px 25px var(--background-color);
+}
+
+.project-tech-container > ol > li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    flex: 1;
+    position: relative;
+}
+
+.project-tech-container > ol > li > span {
+    width: 8em;
+    height: 8em;
+    border-radius: 24% 76% 77% 23% / 30% 30% 70% 70%;
+    display: flex;
+    margin-right: 10px;
+    position: absolute;
+    filter: blur(4rem);
+    opacity: 0.25;
+    animation: move-horizontally 10s infinite;
+}
+
+@keyframes move-horizontally {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 
 @keyframes slide-up {
     0%, 10% {
