@@ -423,10 +423,10 @@ html, body {
         transform: translateX(0%);
     }
     50% {
-        transform: translateX(calc(-100% + 50px));
+        transform: translateX(calc(-100% - 50px));
     }
     75% {
-        transform: translateX(calc(-100% + 50px));
+        transform: translateX(calc(-100% - 50px));
     }
     100% {
         transform: translateX(0%);
@@ -479,6 +479,8 @@ html, body {
 
     .project-info-container {
         min-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
     }
 
     .project-info-container + .project-info-container {
