@@ -61,6 +61,7 @@
                 <a href="#experience">Experience</a>
                 <a href="#work">Work</a>
                 <a href="#skills">Skills</a>
+                <a href="#terminal">Terminal</a>
                 <a href="#contact">Contact</a>
             </div>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
@@ -97,6 +98,7 @@
         <a href="#experience">Experience</a>
         <a href="#work">Work</a>
         <a href="#skills">Skills</a>
+        <a href="#terminal">Terminal</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -283,9 +285,45 @@
 
         <hr>
 
-        <section id="contact">
+        <section id="terminal">
             <div class="section-label reveal">
                 <span class="section-num">04</span>
+                <span>Terminal</span>
+            </div>
+
+            <div class="terminal-window reveal" id="terminal-window">
+                <div class="terminal-titlebar">
+                    <div class="terminal-dots" aria-hidden="true">
+                        <span class="terminal-dot"></span>
+                        <span class="terminal-dot"></span>
+                        <span class="terminal-dot"></span>
+                    </div>
+                    <span class="terminal-title">tomas@barak:~</span>
+                </div>
+                <div class="terminal-body" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output">
+                    <span class="terminal-line t-info">Type <code>help</code> for available commands.</span>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="t-prompt" aria-hidden="true">~/&nbsp;&nbsp;</span>
+                    <input
+                        type="text"
+                        id="terminal-input"
+                        class="terminal-input"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                        aria-label="Terminal command input"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contact">
+            <div class="section-label reveal">
+                <span class="section-num">05</span>
                 <span>Contact</span>
             </div>
             <div class="contact-content reveal">

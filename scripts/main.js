@@ -115,3 +115,175 @@ document.addEventListener('keydown', (e) => {
         toggleMobileMenu(false);
     }
 });
+
+// ——— Interactive Terminal ———
+(function () {
+    const outputEl = document.getElementById('terminal-output');
+    const inputEl = document.getElementById('terminal-input');
+    const windowEl = document.getElementById('terminal-window');
+
+    if (!outputEl || !inputEl) return;
+
+    const cmdHistory = [];
+    let histIdx = -1;
+
+    function makeLine(text, cls) {
+        const el = document.createElement('span');
+        el.className = 'terminal-line ' + cls;
+        el.textContent = text;
+        return el;
+    }
+
+    function makeGap() {
+        const el = document.createElement('span');
+        el.className = 'terminal-gap';
+        return el;
+    }
+
+    function makeLinkLine(prefix, href, linkText) {
+        const el = document.createElement('span');
+        el.className = 'terminal-line t-out';
+        if (prefix) el.appendChild(document.createTextNode(prefix));
+        const a = document.createElement('a');
+        a.href = href;
+        if (!href.startsWith('mailto')) {
+            a.target = '_blank';
+            a.rel = 'noopener';
+        }
+        a.textContent = linkText;
+        el.appendChild(a);
+        return el;
+    }
+
+    const COMMANDS = {
+        help() {
+            return [
+                makeLine('Available commands:', 't-strong'),
+                makeLine('  whoami      — about me', 't-out'),
+                makeLine('  projects    — selected work', 't-out'),
+                makeLine('  skills      — technical stack', 't-out'),
+                makeLine('  contact     — get in touch', 't-out'),
+                makeLine('  clear       — clear terminal', 't-out'),
+            ];
+        },
+        whoami() {
+            return [
+                makeLine('Tomás Barak', 't-strong'),
+                makeLine('AI Engineer & Software Developer', 't-out'),
+                makeLine('Buenos Aires, Argentina', 't-out'),
+            ];
+        },
+        projects() {
+            const data = [
+                ['FacuamigoAR',          'https://facuamigo.ar',              'facuamigo.ar'],
+                ['Macgyver Shop',         'https://shop.macgyver.com.ar',      'shop.macgyver.com.ar'],
+                ['Perfect Product Pics',  'https://perfectproductpics.com',    'perfectproductpics.com'],
+                ['Polifaces',             null,                                null],
+            ];
+            const nodes = [makeLine('Selected Work', 't-strong')];
+            data.forEach(([name, href, label], i) => {
+                const num = String(i + 1).padStart(2, '0');
+                const prefix = '  ' + num + '  ' + name.padEnd(24);
+                if (href) {
+                    nodes.push(makeLinkLine(prefix, href, label));
+                } else {
+                    nodes.push(makeLine(prefix, 't-out'));
+                }
+            });
+            return nodes;
+        },
+        skills() {
+            return [
+                makeLine('Technical Stack', 't-strong'),
+                makeLine('  Python · TypeScript · NodeJS · Apache Kafka', 't-out'),
+                makeLine('  GCP / Vertex AI · Nuxt.js · PostgreSQL · MongoDB · Redis', 't-out'),
+            ];
+        },
+        contact() {
+            return [
+                makeLine('Get In Touch', 't-strong'),
+                makeLinkLine('  ', 'mailto:hola@tomasbarak.com', 'hola@tomasbarak.com'),
+                makeLinkLine('  ', 'https://github.com/tomasbarak', 'github.com/tomasbarak'),
+            ];
+        },
+        ls() {
+            return [makeLine('experience/   work/   skills/   terminal/   contact/', 't-out')];
+        },
+        sudo() {
+            return [makeLine('Permission denied.', 't-err')];
+        },
+        cat() {
+            return [
+                makeLine('Building intelligent systems and digital products', 't-out'),
+                makeLine('with clean code and thoughtful design.', 't-out'),
+            ];
+        },
+    };
+
+    function run(raw) {
+        const trimmed = raw.trim();
+        outputEl.appendChild(makeLine(trimmed, 't-cmd'));
+
+        if (!trimmed) { scroll(); return; }
+
+        const lower = trimmed.toLowerCase();
+
+        if (lower === 'clear') {
+            outputEl.innerHTML = '';
+            return;
+        }
+
+        const spaceIdx = trimmed.indexOf(' ');
+        const cmd = lower.split(' ')[0];
+        let nodes = [];
+
+        if (cmd === 'echo') {
+            const rest = spaceIdx !== -1 ? trimmed.slice(spaceIdx + 1) : '';
+            nodes = [makeLine(rest, 't-out')];
+        } else if (COMMANDS[cmd]) {
+            nodes = COMMANDS[cmd]();
+        } else {
+            nodes = [makeLine('command not found: ' + cmd + '  (try help)', 't-err')];
+        }
+
+        nodes.forEach(n => outputEl.appendChild(n));
+        outputEl.appendChild(makeGap());
+        scroll();
+    }
+
+    function scroll() {
+        outputEl.scrollTop = outputEl.scrollHeight;
+    }
+
+    inputEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const val = inputEl.value;
+            run(val);
+            if (val.trim()) {
+                cmdHistory.unshift(val.trim());
+                histIdx = -1;
+            }
+            inputEl.value = '';
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (histIdx < cmdHistory.length - 1) {
+                histIdx++;
+                inputEl.value = cmdHistory[histIdx];
+                setTimeout(() => inputEl.setSelectionRange(inputEl.value.length, inputEl.value.length), 0);
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (histIdx > 0) {
+                histIdx--;
+                inputEl.value = cmdHistory[histIdx];
+            } else if (histIdx === 0) {
+                histIdx = -1;
+                inputEl.value = '';
+            }
+        }
+    });
+
+    if (windowEl) {
+        windowEl.addEventListener('click', () => inputEl.focus());
+    }
+})();

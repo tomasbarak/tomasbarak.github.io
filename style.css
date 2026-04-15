@@ -324,6 +324,10 @@ nav {
     transition-delay: 0.22s;
 }
 
+.mobile-menu.open a:nth-child(5) {
+    transition-delay: 0.27s;
+}
+
 .mobile-menu a:hover {
     opacity: 0.5;
 }
@@ -424,7 +428,7 @@ hr.visible {
 
 .hero-decoration {
     position: absolute;
-    right: -2%;
+    right: -1%;
     top: 30%;
     transform: translateY(-50%);
     width: min(50%, 500px);
@@ -638,6 +642,161 @@ section {
     font-size: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.04em;
+}
+
+/* ——— Terminal ——— */
+
+.terminal-window {
+    border: 1px solid var(--border);
+    max-width: 640px;
+    cursor: text;
+    transition: border-color 0.3s ease;
+}
+
+.terminal-window:focus-within {
+    border-color: var(--text-secondary);
+}
+
+.terminal-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.terminal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+}
+
+.terminal-title {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+}
+
+.terminal-body {
+    padding: 1.25rem 1.25rem 0.75rem;
+    min-height: 80px;
+    max-height: 280px;
+    overflow-y: auto;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 3px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--border);
+}
+
+.terminal-line {
+    display: block;
+}
+
+.terminal-line.t-info {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+}
+
+.terminal-line.t-info code {
+    font-family: var(--font-mono);
+    color: var(--text);
+    font-size: inherit;
+}
+
+.terminal-line.t-cmd {
+    color: var(--text);
+}
+
+.terminal-line.t-cmd::before {
+    content: '~/  ';
+    color: var(--text-secondary);
+}
+
+.terminal-line.t-out {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+}
+
+.terminal-line.t-out a {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: var(--border);
+    transition: color 0.2s ease, text-decoration-color 0.2s ease, opacity 0.2s ease;
+}
+
+.terminal-line.t-out a:hover {
+    color: var(--text);
+    text-decoration-color: var(--text-secondary);
+    opacity: 1;
+}
+
+.terminal-line.t-strong {
+    color: var(--text);
+    padding-left: 1.5rem;
+}
+
+.terminal-line.t-err {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    opacity: 0.45;
+}
+
+.terminal-gap {
+    height: 0.4rem;
+    display: block;
+    flex-shrink: 0;
+}
+
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem 1.25rem;
+}
+
+.t-prompt {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    user-select: none;
+    flex-shrink: 0;
+    white-space: pre;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    caret-color: var(--text);
+    min-width: 0;
+    padding: 0;
+    transition: color 0.3s ease;
 }
 
 /* ——— Contact ——— */
