@@ -3,6 +3,7 @@
     --text: #e8e5df;
     --text-secondary: #7a7a74;
     --border: #2e2c29;
+    --nav-bg: rgba(10, 10, 9, 0.6);
     --font-serif: 'Instrument Serif', Georgia, serif;
     --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 }
@@ -12,11 +13,14 @@
     --text: #1a1a18;
     --text-secondary: #7a7a74;
     --border: #e0dfd8;
+    --nav-bg: rgba(245, 244, 240, 0.6);
 }
 
 /* ——— Reset ——— */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -38,6 +42,37 @@ body {
     line-height: 1.7;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ——— Background light accents ——— */
+
+.bg-lights {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background:
+        radial-gradient(ellipse 900px 700px at 80% 4%, rgba(255, 252, 235, 0.13) 0%, transparent 65%),
+        radial-gradient(ellipse 650px 850px at 12% 90%, rgba(255, 245, 210, 0.09) 0%, transparent 65%);
+}
+
+:root[data-theme="light"] .bg-lights {
+    background:
+        radial-gradient(ellipse 900px 700px at 80% 4%, rgba(180, 155, 90, 0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 650px 850px at 12% 90%, rgba(150, 130, 70, 0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 700px 600px at 14% 8%, rgba(40, 35, 20, 0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 800px 650px at 88% 88%, rgba(30, 25, 15, 0.08) 0%, transparent 60%);
+}
+
+:root[data-theme="light"] .grain {
+    opacity: 0.18;
+}
+
+main,
+nav,
+footer {
+    position: relative;
+    z-index: 2;
 }
 
 ::selection {
@@ -67,7 +102,7 @@ body {
     height: 100%;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.04;
+    opacity: 0.09;
 }
 
 /* ——— Links ——— */
@@ -94,7 +129,9 @@ nav {
     align-items: center;
     padding: 0 clamp(1.5rem, 4vw, 4rem);
     height: 60px;
-    background-color: var(--bg);
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
     font-family: var(--font-mono);
@@ -160,12 +197,22 @@ nav {
 }
 
 /* In dark mode: show sun (to switch to light) */
-:root .icon-sun { display: flex; }
-:root .icon-moon { display: none; }
+:root .icon-sun {
+    display: flex;
+}
+
+:root .icon-moon {
+    display: none;
+}
 
 /* In light mode: show moon (to switch to dark) */
-:root[data-theme="light"] .icon-sun { display: none; }
-:root[data-theme="light"] .icon-moon { display: flex; }
+:root[data-theme="light"] .icon-sun {
+    display: none;
+}
+
+:root[data-theme="light"] .icon-moon {
+    display: flex;
+}
 
 /* ——— Main container ——— */
 
@@ -182,7 +229,12 @@ hr {
     border: none;
     border-top: 1px solid var(--border);
     margin: 0;
-    transition: border-color 0.3s ease;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+hr.visible {
+    clip-path: inset(0 0% 0 0);
 }
 
 /* ——— Scroll reveal ——— */
@@ -201,11 +253,13 @@ hr {
 /* ——— Hero ——— */
 
 #hero {
+    position: relative;
+    overflow: hidden;
     padding: 8rem 0 4rem;
+    padding-bottom: 0;
 }
 
 #hero .label {
-    font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.08em;
@@ -218,14 +272,13 @@ hr {
     font-family: var(--font-serif);
     font-size: clamp(4rem, 10vw, 8rem);
     font-weight: 400;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     margin-bottom: 2.5rem;
     animation: fade-in 0.8s ease 0.1s both;
 }
 
 #hero .hero-tagline {
-    font-family: var(--font-mono);
     font-size: 0.875rem;
     color: var(--text-secondary);
     line-height: 1.8;
@@ -238,7 +291,6 @@ hr {
     align-items: center;
     gap: 0.6rem;
     margin-top: 2rem;
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     letter-spacing: 0.06em;
@@ -254,6 +306,35 @@ hr {
     animation: pulse 2.5s ease infinite;
 }
 
+/* ——— Hero orbital decoration ——— */
+
+.hero-decoration {
+    position: absolute;
+    right: -2%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(50%, 500px);
+    aspect-ratio: 1;
+    color: var(--text);
+    opacity: 0.1;
+    pointer-events: none;
+    animation: fade-in 1.6s ease 0.6s both;
+}
+
+:root[data-theme="light"] .hero-decoration {
+    opacity: 0.18;
+}
+
+.ring-outer {
+    transform-origin: 250px 250px;
+    animation: rotate-slow 80s linear infinite;
+}
+
+.ring-inner {
+    transform-origin: 250px 250px;
+    animation: rotate-slow 50s linear infinite reverse;
+}
+
 /* ——— Sections ——— */
 
 section {
@@ -265,7 +346,6 @@ section {
     align-items: baseline;
     gap: 1.5rem;
     margin-bottom: 3rem;
-    font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.08em;
@@ -278,7 +358,6 @@ section {
 }
 
 .section-sublabel {
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     letter-spacing: 0.08em;
@@ -286,21 +365,64 @@ section {
     margin: 3.5rem 0 0;
 }
 
-/* ——— Projects ——— */
+/* ——— Entry rows (projects & experience) ——— */
 
-.project {
+.entry {
+    position: relative;
     border-top: 1px solid var(--border);
     padding: 2rem 0;
     transition: padding-left 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
 }
 
-.project:last-child {
+.entry:last-child {
     border-bottom: 1px solid var(--border);
 }
 
-.project:hover {
+.entry:hover {
     padding-left: 1rem;
 }
+
+/* Corner brackets on hover */
+.entry::before,
+.entry::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.entry::before {
+    bottom: 2rem;
+    left: 0;
+    border-bottom: 1px solid var(--text-secondary);
+    border-left: 1px solid var(--text-secondary);
+    transform: translate(-4px, 4px);
+}
+
+.entry::after {
+    top: 2rem;
+    right: 0;
+    border-top: 1px solid var(--text-secondary);
+    border-right: 1px solid var(--text-secondary);
+    transform: translate(4px, -4px);
+}
+
+.entry:hover::before,
+.entry:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.entry-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 540px;
+}
+
+/* ——— Projects ——— */
 
 .project-header {
     display: flex;
@@ -313,11 +435,10 @@ section {
     font-family: var(--font-serif);
     font-size: 1.75rem;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
 }
 
 .project-link {
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     letter-spacing: 0.04em;
@@ -333,36 +454,13 @@ section {
 }
 
 .project-tech {
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     letter-spacing: 0.04em;
     margin-bottom: 0.75rem;
 }
 
-.project-desc {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 540px;
-}
-
 /* ——— Experience ——— */
-
-.experience {
-    border-top: 1px solid var(--border);
-    padding: 2rem 0;
-    transition: padding-left 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
-}
-
-.experience:last-child {
-    border-bottom: 1px solid var(--border);
-}
-
-.experience:hover {
-    padding-left: 1rem;
-}
 
 .experience-header {
     display: flex;
@@ -376,32 +474,22 @@ section {
     font-family: var(--font-serif);
     font-size: 1.75rem;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     margin-bottom: 0.25rem;
 }
 
 .experience-role {
     display: block;
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     letter-spacing: 0.04em;
 }
 
 .experience-date {
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     white-space: nowrap;
     padding-top: 0.25rem;
-}
-
-.experience-desc {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 540px;
 }
 
 /* ——— Skills ——— */
@@ -414,7 +502,6 @@ section {
 }
 
 .skill-tag {
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     border: 1px solid var(--border);
@@ -429,7 +516,6 @@ section {
 }
 
 .languages-line {
-    font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-secondary);
     letter-spacing: 0.04em;
@@ -441,8 +527,8 @@ section {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
     margin-bottom: 2rem;
 }
 
@@ -453,7 +539,6 @@ section {
 .contact-links {
     display: flex;
     gap: 2rem;
-    font-family: var(--font-mono);
     font-size: 0.8rem;
     letter-spacing: 0.04em;
 }
@@ -484,7 +569,6 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 0;
-    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
     letter-spacing: 0.04em;
@@ -497,6 +581,7 @@ footer {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -504,11 +589,30 @@ footer {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.25; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes rotate-slow {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* ——— Responsive ——— */
+
+@media screen and (max-width: 900px) {
+    .hero-decoration {
+        display: none;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .nav-links {
@@ -517,14 +621,14 @@ footer {
 
     #hero {
         padding: 5rem 0 3rem;
+        padding-bottom: 0;
     }
 
     #hero h1 {
         font-size: clamp(3rem, 12vw, 5rem);
     }
 
-    .project:hover,
-    .experience:hover {
+    .entry:hover {
         padding-left: 0.5rem;
     }
 

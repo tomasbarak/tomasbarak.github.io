@@ -43,14 +43,26 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 // Stagger list items within each section
 document.querySelectorAll('.reveal').forEach(el => {
-    if (el.classList.contains('experience') || el.classList.contains('project')) {
+    if (el.classList.contains('entry')) {
         const siblings = Array.from(el.parentElement.children)
-            .filter(c => c.classList.contains('experience') || c.classList.contains('project'));
+            .filter(c => c.classList.contains('entry'));
         const index = siblings.indexOf(el);
         el.style.transitionDelay = `${index * 0.08}s`;
     }
     revealObserver.observe(el);
 });
+
+// ——— HR draw-in animation ———
+const dividerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            dividerObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0 });
+
+document.querySelectorAll('hr').forEach(hr => dividerObserver.observe(hr));
 
 // ——— Active nav link on scroll ———
 const sections = document.querySelectorAll('section[id]');
