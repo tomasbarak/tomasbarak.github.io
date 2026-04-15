@@ -3,140 +3,234 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>Tomás Barak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomás Barak — AI Engineer</title>
+    <meta name="description" content="Tomás Barak is an AI Engineer and software developer based in Buenos Aires, Argentina. Building intelligent systems and digital products with clean code.">
+    <meta property="og:title" content="Tomás Barak — AI Engineer">
+    <meta property="og:description" content="AI Engineer and software developer based in Buenos Aires, Argentina. Building intelligent systems and digital products with clean code.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tomasbarak.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tomás Barak — AI Engineer">
+    <meta name="twitter:description" content="AI Engineer and software developer based in Buenos Aires, Argentina.">
+    <link rel="icon" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="carousel.css">
-    <link rel="stylesheet" href="blurry.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tomás Barak",
+        "jobTitle": "AI Engineer",
+        "url": "https://tomasbarak.com",
+        "sameAs": ["https://github.com/tomasbarak"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Buenos Aires",
+            "addressCountry": "AR"
+        },
+        "email": "hola@tomasbarak.com"
+    }
+    </script>
 </head>
 
 <body>
-    <nav id="top-navbar">
-        <!-- <a id="home-btn" href="#presentation-section">Home</a>
-        <a id="projects-btn" href="#projects-section">Projects</a>
-        <a id="contact-btn" href="#contact-section">Contact</a> -->
+
+    <div id="scroll-progress"></div>
+
+    <!-- Noise texture overlay -->
+    <svg class="grain" aria-hidden="true">
+        <filter id="grain-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-filter)" />
+    </svg>
+
+    <nav>
+        <a href="#" class="nav-logo">TB</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#work">Work</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="icon-sun" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </span>
+                <span class="icon-moon" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </span>
+            </button>
+        </div>
     </nav>
-    <section id="presentation-section">
-        <div id="presentation-left-container">
-            <div id="presentation-left">
-                <h3>Hey,</h3>
-                <h1>I'm <font class="bold-font">Tomás Barak</font>
-                </h1>
-                <div id="presentation-h2">A <ol class="accent-font">
-                        <li><span>full-stack</span></li>
-                        <li><span>front-end</span></li>
-                        <li><span>back-end</span></li>
-                    </ol> developer based in Argentina</div>
+
+    <main>
+        <section id="hero">
+            <p class="label">AI Engineer & Software Developer — Buenos Aires, Argentina</p>
+            <h1>Tomás Barak</h1>
+            <p class="hero-tagline">Building intelligent systems and digital products with clean code and thoughtful design.</p>
+            <div class="hero-status">
+                <span class="status-dot"></span>
+                Open to interesting projects
             </div>
-        </div>
+        </section>
 
-        <div id="presentation-right">
-            <img src="images/programming.svg" alt="Programmer illustration">
-        </div>
+        <hr>
 
-        <div id="blurry-shape-1"></div>
-        <div id="blurry-shape-2"></div>
-        <!-- <img src="images/wave-accent.svg" id="presentation-wave" alt="WAVE SVG"> -->
-    </section>
-    <!-- <section id="projects-section">
+        <section id="experience">
+            <div class="section-label reveal">
+                <span class="section-num">01</span>
+                <span>Experience</span>
+            </div>
 
-        <div class="projects-left">
-            <div id="tech-slide-container">
-                <div class="project-tech-container">
-                    <ol>
-                        <li><span class="tech-li-dot" style="background-color: #f89820;"></span>Java</li>
-                        <li><span class="tech-li-dot" style="background-color: #007acc;"></span>Typescript</li>
-                        <li><span class="tech-li-dot" style="background-color: #ffcb2b;"></span>Firebase Firestore</li>
-                        <li><span class="tech-li-dot" style="background-color: #B31011;"></span>OneSignal</li>
-                    </ol>
+            <div class="experience reveal">
+                <div class="experience-header">
+                    <div>
+                        <h3>Asignet Technology DNA</h3>
+                        <span class="experience-role">AI Engineer</span>
+                    </div>
+                    <span class="experience-date">Mar 2026 — Present</span>
                 </div>
-                <div class="project-tech-container">
-                    <ol>
-                        <li><span class="tech-li-dot" style="background-color: #4B8BBE;"></span>Python</li>
-                        <li><span class="tech-li-dot" style="background-color: #D22128;"></span>Apache Kafka</li>
-                        <li><span class="tech-li-dot" style="background-color: #0db7ed;"></span>Docker / Docker Compose</li>
-                        <li><span class="tech-li-dot" style="background-color: #007acc;"></span>Typescript</li>
-                        <li><span class="tech-li-dot" style="background-color: #f89820;"></span>Tensorflow</li>
-                    </ol>
+                <p class="experience-desc">Planning and development of multiple systems implementing generative AI in a predictable and scalable way.</p>
+            </div>
+
+            <div class="experience reveal">
+                <div class="experience-header">
+                    <div>
+                        <h3>B2Gov</h3>
+                        <span class="experience-role">Backend Software Developer</span>
+                    </div>
+                    <span class="experience-date">Dec 2023 — Mar 2026</span>
+                </div>
+                <p class="experience-desc">Design and development of advanced data extraction software, implementing AI-powered scraping techniques and data verification pipelines.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="work">
+            <div class="section-label reveal">
+                <span class="section-num">02</span>
+                <span>Selected Work</span>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-header">
+                    <h3>FacuamigoAR</h3>
+                    <a class="project-link" href="https://facuamigo.ar" target="_blank" rel="noopener">facuamigo.ar ↗</a>
+                </div>
+                <p class="project-tech">Nuxt.js · TypeScript · ExpressJS · Python · Vertex AI · RAG · Firebase</p>
+                <p class="project-desc">AI-powered learning platform for Argentine university students. Helps students study faster and more effectively through intelligent, context-aware assistance.</p>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-header">
+                    <h3>Macgyver Shop</h3>
+                    <a class="project-link" href="https://shop.macgyver.com.ar" target="_blank" rel="noopener">shop.macgyver.com.ar ↗</a>
+                </div>
+                <p class="project-tech">NuxtJS · TypeScript · ExpressJS · Strapi · PostgreSQL · MercadoPago</p>
+                <p class="project-desc">Full e-commerce platform built from scratch with custom webhook handling, order management, and home delivery integrations.</p>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-header">
+                    <h3>Perfect Product Pics</h3>
+                    <a class="project-link" href="https://perfectproductpics.com" target="_blank" rel="noopener">perfectproductpics.com ↗</a>
+                </div>
+                <p class="project-tech">Google Gemini · Advanced Prompting</p>
+                <p class="project-desc">Upload an amateur product photo and convert it into a studio-quality image using Google's Gemini model and advanced prompting techniques.</p>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-header">
+                    <h3>Polifaces</h3>
+                </div>
+                <p class="project-tech">Apache Kafka · OpenCV · ChromaDB · Python · TypeScript</p>
+                <p class="project-desc">Facial recognition attendance system for educational institutions. Automates student check-in and generates detailed attendance reports for administrators.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="skills">
+            <div class="section-label reveal">
+                <span class="section-num">03</span>
+                <span>Skills</span>
+            </div>
+
+            <div class="skills-grid reveal">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">NodeJS</span>
+                <span class="skill-tag">Apache Kafka</span>
+                <span class="skill-tag">GCP / Vertex AI</span>
+                <span class="skill-tag">Nuxt.js</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Redis</span>
+            </div>
+
+            <p class="languages-line reveal">Español — native &nbsp;·&nbsp; English — B2 First (175)</p>
+
+            <p class="section-sublabel reveal">Education</p>
+
+            <div class="experience reveal">
+                <div class="experience-header">
+                    <div>
+                        <h3>Universidad de Buenos Aires</h3>
+                        <span class="experience-role">Computer Engineering</span>
+                    </div>
+                    <span class="experience-date">Jan 2024 — Present</span>
                 </div>
             </div>
-        </div>
-        <div class="projects-right">
-            <div class="project-info-container">
-                <img class="project-image" src="images/mitender-banner.png" alt="">
-                <h1 class="project-title">Mi Tender</h1>
-                <p class="project-description">Mi Tender is an Android application that notifies the user when it is going to rain near his house.</p>
-                <div class="project-screenshots-container">
-                    <img class="project-screenshot" src="images/mitender-screenshot-1.jpg" alt="">
-                    <img class="project-screenshot" src="images/mitender-screenshot-2.jpg" alt="">
+
+            <div class="experience reveal">
+                <div class="experience-header">
+                    <div>
+                        <h3>Instituto Politécnico Modelo</h3>
+                        <span class="experience-role">Computer Technology</span>
+                    </div>
+                    <span class="experience-date">Jan 2018 — Nov 2023</span>
+                </div>
+                <p class="experience-desc">Technical high school specializing in computing, networking, and computer systems.</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="contact">
+            <div class="section-label reveal">
+                <span class="section-num">04</span>
+                <span>Contact</span>
+            </div>
+            <div class="contact-content reveal">
+                <h2>Let's work<br><em>together.</em></h2>
+                <div class="contact-links">
+                    <a href="mailto:hola@tomasbarak.com">hola@tomasbarak.com ↗</a>
+                    <a href="https://github.com/tomasbarak" target="_blank" rel="noopener">GitHub ↗</a>
                 </div>
             </div>
-            <div class="project-info-container">
-                <img class="project-image" src="images/polifaces-banner.png" alt="">
-                <h1 class="project-title">Polifaces</h1>
-                <p class="project-description">An all-in-one AI facial recogition platform designed for business, schools, or any other institution.</p>
-            </div>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <div class="footer-content">
+            <span>© 2026 Tomás Barak</span>
+            <span>Buenos Aires, Argentina</span>
         </div>
-    </section>
+    </footer>
 
-    <section id="contact-section">
-
-    </section> -->
-
-    <!-- <script>
-        const home_btn = document.querySelector("#home-btn");
-        const projects_btn = document.querySelector("#projects-btn");
-        const contact_btn = document.querySelector("#contact-btn");
-
-        function selected_section() {
-            const url_hash = window.location.hash;
-
-            console.log(url_hash);
-
-            if (url_hash == "#presentation-section") {
-                return "home";
-            } else if (url_hash === "#projects-section") {
-                return "projects";
-            } else if (url_hash === "#contact-section") {
-                return "contact";
-            } else {
-                return "home";
-            }
-        }
-
-        function select_section_btn(selected_section) {
-            if (selected_section === "home") {
-                home_btn.classList.add("selected");
-                projects_btn.classList.remove("selected");
-                contact_btn.classList.remove("selected");
-            } else if (selected_section === "projects") {
-                home_btn.classList.remove("selected");
-                projects_btn.classList.add("selected");
-                contact_btn.classList.remove("selected");
-            } else if (selected_section === "contact") {
-                home_btn.classList.remove("selected");
-                projects_btn.classList.remove("selected");
-                contact_btn.classList.add("selected");
-            }
-        }
-
-        const current_section = selected_section();
-        select_section_btn(current_section);
-
-        home_btn.addEventListener("click", () => {
-            select_section_btn("home");
-        });
-
-        projects_btn.addEventListener("click", () => {
-            select_section_btn("projects");
-        });
-
-        contact_btn.addEventListener("click", () => {
-            select_section_btn("contact");
-        });
-
-    </script> -->
+    <script src="scripts/main.js" defer></script>
 </body>
 
 </html>
