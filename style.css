@@ -214,6 +214,120 @@ nav {
     display: flex;
 }
 
+/* ——— Hamburger button ——— */
+
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 0;
+    flex-shrink: 0;
+    transition: color 0.2s ease;
+}
+
+.nav-hamburger:hover {
+    color: var(--text);
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+/* ——— Mobile menu ——— */
+
+.mobile-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 clamp(1.5rem, 4vw, 4rem);
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background-color 0.3s ease;
+}
+
+.mobile-menu.open {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu a {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 9vw, 3.5rem);
+    color: var(--text);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0;
+    display: block;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s ease, border-color 0.3s ease;
+}
+
+.mobile-menu a:first-child {
+    border-top: 1px solid var(--border);
+}
+
+.mobile-menu.open a {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu.open a:nth-child(1) {
+    transition-delay: 0.07s;
+}
+
+.mobile-menu.open a:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.mobile-menu.open a:nth-child(3) {
+    transition-delay: 0.17s;
+}
+
+.mobile-menu.open a:nth-child(4) {
+    transition-delay: 0.22s;
+}
+
+.mobile-menu a:hover {
+    opacity: 0.5;
+}
+
 /* ——— Main container ——— */
 
 main {
@@ -311,7 +425,7 @@ hr.visible {
 .hero-decoration {
     position: absolute;
     right: -2%;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
     width: min(50%, 500px);
     aspect-ratio: 1;
@@ -378,8 +492,10 @@ section {
     border-bottom: 1px solid var(--border);
 }
 
-.entry:hover {
-    padding-left: 1rem;
+@media (hover: hover) and (pointer: fine) {
+    .entry:hover {
+        padding-left: 1rem;
+    }
 }
 
 /* Corner brackets on hover */
@@ -409,10 +525,13 @@ section {
     transform: translate(4px, -4px);
 }
 
-.entry:hover::before,
-.entry:hover::after {
-    opacity: 1;
-    transform: translate(0, 0);
+@media (hover: hover) and (pointer: fine) {
+
+    .entry:hover::before,
+    .entry:hover::after {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 }
 
 .entry-desc {
@@ -619,6 +738,19 @@ footer {
         display: none;
     }
 
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .theme-toggle {
+        width: 44px;
+        height: 44px;
+    }
+
+    .grain {
+        display: none;
+    }
+
     #hero {
         padding: 5rem 0 3rem;
         padding-bottom: 0;
@@ -626,10 +758,6 @@ footer {
 
     #hero h1 {
         font-size: clamp(3rem, 12vw, 5rem);
-    }
-
-    .entry:hover {
-        padding-left: 0.5rem;
     }
 
     .project-header,
@@ -646,5 +774,44 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ring-outer,
+    .ring-inner {
+        animation: none;
+    }
+
+    .status-dot {
+        animation: none;
+    }
+
+    .hero-decoration {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    hr {
+        clip-path: inset(0 0% 0 0);
+        transition: none;
+    }
+
+    .mobile-menu,
+    .mobile-menu a {
+        transition: none;
     }
 }
