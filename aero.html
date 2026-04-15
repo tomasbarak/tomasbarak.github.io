@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomás Barak — AI Engineer</title>
+    <meta name="description"
+        content="Tomás Barak is an AI Engineer and software developer based in Buenos Aires, Argentina. Building intelligent systems and digital products with clean code.">
+    <meta property="og:title" content="Tomás Barak — AI Engineer">
+    <meta property="og:description"
+        content="AI Engineer and software developer based in Buenos Aires, Argentina. Building intelligent systems and digital products with clean code.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tomasbarak.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tomás Barak — AI Engineer">
+    <meta name="twitter:description" content="AI Engineer and software developer based in Buenos Aires, Argentina.">
+    <link rel="icon" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="aero.css">
+</head>
+
+<body>
+
+    <!-- Layered atmospheric background -->
+    <div class="atmosphere" aria-hidden="true">
+        <div class="atmo-layer atmo-sky"></div>
+        <div class="atmo-layer atmo-aurora"></div>
+        <div class="atmo-orb orb-1"></div>
+        <div class="atmo-orb orb-2"></div>
+        <div class="atmo-orb orb-3"></div>
+        <div class="atmo-orb orb-4"></div>
+        <div class="atmo-orb orb-5"></div>
+    </div>
+
+    <!-- Cursor glow (positioned via JS) -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+    <div id="scroll-progress"></div>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">TB</a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#experience">Experience</a>
+                    <a href="#work">Work</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#terminal">Terminal</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="#experience">Experience</a>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#terminal">Terminal</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <p class="label">AI Engineer & Software Developer</p>
+                <h1>
+                    <span class="hero-name">Tomás Barak</span>
+                </h1>
+                <p class="hero-tagline">Building intelligent systems and digital products<br>with clean code and thoughtful design.</p>
+                <div class="hero-status">
+                    <span class="status-dot"></span>
+                    Open to interesting projects
+                </div>
+            </div>
+
+            <div class="hero-decoration" aria-hidden="true">
+                <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="sphere-core" cx="40%" cy="38%" r="55%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
+                            <stop offset="25%" stop-color="#b8e0ff" stop-opacity="0.6" />
+                            <stop offset="55%" stop-color="#7ec8f0" stop-opacity="0.35" />
+                            <stop offset="80%" stop-color="#4a9fd4" stop-opacity="0.18" />
+                            <stop offset="100%" stop-color="#2d7ab8" stop-opacity="0.06" />
+                        </radialGradient>
+                        <radialGradient id="sphere-shine" cx="32%" cy="28%" r="35%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                            <stop offset="60%" stop-color="#ffffff" stop-opacity="0.15" />
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+                        </radialGradient>
+                        <radialGradient id="sphere-rim" cx="50%" cy="50%" r="50%">
+                            <stop offset="85%" stop-color="#ffffff" stop-opacity="0" />
+                            <stop offset="95%" stop-color="#a0d4f0" stop-opacity="0.12" />
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+                        </radialGradient>
+                        <radialGradient id="mini-bubble" cx="35%" cy="32%" r="55%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+                            <stop offset="45%" stop-color="#c8e6ff" stop-opacity="0.35" />
+                            <stop offset="100%" stop-color="#90c8e8" stop-opacity="0.08" />
+                        </radialGradient>
+                        <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3" />
+                            <stop offset="50%" stop-color="#b0d8f0" stop-opacity="0.12" />
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0.25" />
+                        </linearGradient>
+                        <filter id="sphere-glow">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+                        </filter>
+                    </defs>
+
+                    <!-- Outer glow -->
+                    <circle cx="250" cy="250" r="165" fill="#b0d8f0" opacity="0.08" filter="url(#sphere-glow)" />
+
+                    <!-- Main sphere layers -->
+                    <circle cx="250" cy="250" r="145" fill="url(#sphere-core)" />
+                    <circle cx="250" cy="250" r="145" fill="url(#sphere-shine)" />
+                    <circle cx="250" cy="250" r="145" fill="url(#sphere-rim)" />
+
+                    <!-- Sphere edge highlight -->
+                    <circle cx="250" cy="250" r="144" stroke="url(#ring-grad)" stroke-width="1.2" fill="none" />
+
+                    <!-- Bottom reflection arc -->
+                    <ellipse cx="250" cy="310" rx="70" ry="12" fill="#ffffff" opacity="0.06" />
+
+                    <!-- Inner orbit ring -->
+                    <g class="ring-inner">
+                        <circle cx="250" cy="250" r="100" stroke="#ffffff" stroke-width="0.6" fill="none"
+                            stroke-dasharray="3 9" opacity="0.2" />
+                    </g>
+
+                    <!-- Middle orbit ring with ticks -->
+                    <circle cx="250" cy="250" r="175" stroke="#ffffff" stroke-width="0.4" fill="none" opacity="0.12" />
+                    <circle cx="250" cy="75" r="2.5" fill="#ffffff" opacity="0.25" />
+                    <circle cx="250" cy="425" r="2.5" fill="#ffffff" opacity="0.25" />
+                    <circle cx="75" cy="250" r="2.5" fill="#ffffff" opacity="0.25" />
+                    <circle cx="425" cy="250" r="2.5" fill="#ffffff" opacity="0.25" />
+
+                    <!-- Outer orbit + orbiting bubble -->
+                    <g class="ring-outer">
+                        <circle cx="250" cy="250" r="220" stroke="#ffffff" stroke-width="0.5" fill="none"
+                            stroke-dasharray="5 16" opacity="0.15" />
+                        <!-- Orbiting bubble -->
+                        <circle cx="250" cy="30" r="16" fill="url(#mini-bubble)" />
+                        <circle cx="250" cy="30" r="15.5" stroke="#ffffff" stroke-width="0.6" fill="none" opacity="0.35" />
+                        <!-- Tiny shine on orbiter -->
+                        <circle cx="244" cy="24" r="4" fill="#ffffff" opacity="0.5" />
+                    </g>
+
+                    <!-- Floating accent bubbles -->
+                    <circle cx="395" cy="120" r="22" fill="url(#mini-bubble)" opacity="0.55" />
+                    <circle cx="395" cy="120" r="21.5" stroke="#ffffff" stroke-width="0.5" fill="none" opacity="0.3" />
+                    <circle cx="389" cy="113" r="5" fill="#ffffff" opacity="0.35" />
+
+                    <circle cx="108" cy="380" r="16" fill="url(#mini-bubble)" opacity="0.4" />
+                    <circle cx="108" cy="380" r="15.5" stroke="#ffffff" stroke-width="0.4" fill="none" opacity="0.25" />
+
+                    <circle cx="410" cy="355" r="10" fill="url(#mini-bubble)" opacity="0.3" />
+
+                    <circle cx="340" cy="430" r="7" fill="url(#mini-bubble)" opacity="0.25" />
+
+                    <!-- Center dot -->
+                    <circle cx="250" cy="250" r="3" fill="#ffffff" opacity="0.35" />
+                    <circle cx="250" cy="250" r="7" stroke="#ffffff" stroke-width="0.4" fill="none" opacity="0.15" />
+                </svg>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+
+        <section id="experience">
+            <div class="section-header reveal">
+                <span class="section-num">01</span>
+                <span class="section-title">Experience</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="experience-header">
+                        <div>
+                            <h3>Asignet Technology DNA</h3>
+                            <span class="badge badge-blue">AI Engineer</span>
+                        </div>
+                        <time class="date-tag">Mar 2026 — Present</time>
+                    </div>
+                    <p class="card-desc">Planning and development of multiple systems implementing generative AI in a
+                        predictable and scalable way.</p>
+                </article>
+
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="experience-header">
+                        <div>
+                            <h3>B2Gov</h3>
+                            <span class="badge badge-teal">Backend Software Developer</span>
+                        </div>
+                        <time class="date-tag">Dec 2023 — Mar 2026</time>
+                    </div>
+                    <p class="card-desc">Design and development of advanced data extraction software, implementing
+                        AI-powered scraping techniques and data verification pipelines.</p>
+                </article>
+            </div>
+
+            <div class="subsection-label reveal">Education</div>
+
+            <div class="cards-grid">
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="experience-header">
+                        <div>
+                            <h3>Universidad de Buenos Aires</h3>
+                            <span class="badge badge-indigo">Computer Engineering</span>
+                        </div>
+                        <time class="date-tag">Jan 2024 — Present</time>
+                    </div>
+                </article>
+
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="experience-header">
+                        <div>
+                            <h3>Instituto Politécnico Modelo</h3>
+                            <span class="badge badge-indigo">Computer Technology</span>
+                        </div>
+                        <time class="date-tag">Jan 2018 — Nov 2023</time>
+                    </div>
+                    <p class="card-desc">Technical high school specializing in computing, networking, and computer systems.</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+
+        <section id="work">
+            <div class="section-header reveal">
+                <span class="section-num">02</span>
+                <span class="section-title">Selected Work</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="project-header">
+                        <h3>FacuamigoAR</h3>
+                        <a class="project-link" href="https://facuamigo.ar" target="_blank" rel="noopener">
+                            <span>facuamigo.ar</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+                    <div class="tech-stack">
+                        <span>Nuxt.js</span><span>TypeScript</span><span>ExpressJS</span><span>Python</span><span>Vertex AI</span><span>RAG</span><span>Firebase</span>
+                    </div>
+                    <p class="card-desc">AI-powered learning platform for Argentine university students. Helps students
+                        study faster and more effectively through intelligent, context-aware assistance.</p>
+                </article>
+
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="project-header">
+                        <h3>Macgyver Shop</h3>
+                        <a class="project-link" href="https://shop.macgyver.com.ar" target="_blank" rel="noopener">
+                            <span>shop.macgyver.com.ar</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+                    <div class="tech-stack">
+                        <span>NuxtJS</span><span>TypeScript</span><span>ExpressJS</span><span>Strapi</span><span>PostgreSQL</span><span>MercadoPago</span>
+                    </div>
+                    <p class="card-desc">Full e-commerce platform built from scratch with custom webhook handling, order
+                        management, and home delivery integrations.</p>
+                </article>
+
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="project-header">
+                        <h3>Perfect Product Pics</h3>
+                        <a class="project-link" href="https://perfectproductpics.com" target="_blank" rel="noopener">
+                            <span>perfectproductpics.com</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+                    <div class="tech-stack">
+                        <span>Google Gemini</span><span>Advanced Prompting</span>
+                    </div>
+                    <p class="card-desc">Upload an amateur product photo and convert it into a studio-quality image using
+                        Google's Gemini model and advanced prompting techniques.</p>
+                </article>
+
+                <article class="glass-card reveal" data-glow>
+                    <div class="card-shine"></div>
+                    <div class="project-header">
+                        <h3>Polifaces</h3>
+                    </div>
+                    <div class="tech-stack">
+                        <span>Apache Kafka</span><span>OpenCV</span><span>ChromaDB</span><span>Python</span><span>TypeScript</span>
+                    </div>
+                    <p class="card-desc">Facial recognition attendance system for educational institutions. Automates
+                        student check-in and generates detailed attendance reports for administrators.</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+
+        <section id="skills">
+            <div class="section-header reveal">
+                <span class="section-num">03</span>
+                <span class="section-title">Skills</span>
+            </div>
+
+            <div class="skills-container reveal glass-card" data-glow>
+                <div class="card-shine"></div>
+                <div class="skills-grid">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">TypeScript</span>
+                    <span class="skill-pill">NodeJS</span>
+                    <span class="skill-pill">Apache Kafka</span>
+                    <span class="skill-pill">GCP / Vertex AI</span>
+                    <span class="skill-pill">Nuxt.js</span>
+                    <span class="skill-pill">PostgreSQL</span>
+                    <span class="skill-pill">MongoDB</span>
+                    <span class="skill-pill">Redis</span>
+                </div>
+                <div class="skills-divider"></div>
+                <p class="languages-line">Español — native &nbsp;&middot;&nbsp; English — B2 First (175)</p>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+
+        <section id="terminal">
+            <div class="section-header reveal">
+                <span class="section-num">04</span>
+                <span class="section-title">Terminal</span>
+            </div>
+
+            <div class="terminal-window reveal" id="terminal-window">
+                <div class="terminal-titlebar">
+                    <div class="terminal-dots" aria-hidden="true">
+                        <span class="terminal-dot dot-close"></span>
+                        <span class="terminal-dot dot-minimize"></span>
+                        <span class="terminal-dot dot-maximize"></span>
+                    </div>
+                    <span class="terminal-title">tomas@barak ~ </span>
+                    <div class="terminal-titlebar-fill"></div>
+                </div>
+                <div class="terminal-body" id="terminal-output" role="log" aria-live="polite" aria-label="Terminal output">
+                    <span class="terminal-line t-info">Type <code>help</code> for available commands.</span>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="t-prompt" aria-hidden="true">~/&nbsp;&nbsp;</span>
+                    <input
+                        type="text"
+                        id="terminal-input"
+                        class="terminal-input"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                        aria-label="Terminal command input"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-dot"></div>
+            <div class="divider-line"></div>
+        </div>
+
+        <section id="contact">
+            <div class="section-header reveal">
+                <span class="section-num">05</span>
+                <span class="section-title">Contact</span>
+            </div>
+            <div class="contact-panel reveal glass-card" data-glow>
+                <div class="card-shine"></div>
+                <div class="contact-inner">
+                    <h2>Let's work<br><em>together.</em></h2>
+                    <p class="contact-sub">Have a project in mind? I'd love to hear about it.</p>
+                    <div class="contact-links">
+                        <a href="mailto:hola@tomasbarak.com" class="contact-btn contact-btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+                            hola@tomasbarak.com
+                        </a>
+                        <a href="https://github.com/tomasbarak" target="_blank" rel="noopener" class="contact-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>&copy; 2026 Tomás Barak</span>
+            <span>Buenos Aires, Argentina</span>
+        </div>
+    </footer>
+
+    <script src="scripts/aero.js" defer></script>
+</body>
+
+</html>
